@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Login</h2>
+    <form method="post">
+        <table>
+            <tr>
+                <td class="label">
+                    Username
+                </td>
+                <td>
+    		        <input type="text" name="username" value="{{username}}">
+    		    </td>
+    		    <td class="error">
+    		        {% if username_error %}
+    		            Sorry, that username is invalid.
+    			    {% endif %}
+                    {% if user_exists %}
+                        Sorry, that username doesn't exist.
+                    {% endif %}
+    		    </td>
+    		</tr>
+            <tr>
+                <td class="label">
+                    Password
+                </td>
+                <td>
+                    <input type="password" name="password" value="">
+                </td>
+                <td class="error">
+                    {% if password_error %}
+        			    Sorry, that password is incorrect.
+        			{% endif %}
+                </td>
+            </tr>
+        </table>
+	    <input class="nav" type="submit">
+	</form>
+    <a href="/signup"><button class="nav">Create new account</button></a>
+{% endblock %}

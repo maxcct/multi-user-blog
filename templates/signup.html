@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Signup</h2>
+    <form method="post">
+        <table>
+            <tr>
+                <td class="label">
+                    Username
+                </td>
+                <td>
+                    <input type="text" name="username" value="{{username}}">
+                </td>
+                <td class="error">
+                    {% if username_error %}
+                        Sorry, that username is invalid.
+                    {% endif %}
+                    {% if user_exists %}
+                        Sorry, that username is already taken.
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    Password
+                </td>
+                <td>
+                    <input type="password" name="password" value="">
+                </td>
+                <td class="error">
+                    {% if password_error %}
+                        Sorry, that password is invalid.
+			        {% endif %}
+                </td>
+            </tr>	
+            <tr>
+                <td class="label">
+                    Verify Password
+                </td>
+                <td>
+                    <input type="password" name="verify" value="">
+                </td>
+                <td class="error">
+                    {% if verify_error %}
+                        Sorry, those passwords don't match.
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    Email (optional)
+                </td>
+                <td>
+                    <input type="text" name="email" value="{{email}}">
+                </td>
+                <td class="error">
+                    {% if email_error %}
+                        Sorry, that email is invalid.
+			        {% endif %}
+                </td>
+            </tr>
+        </table>
+        <input class="nav" type="submit">
+	</form>
+    <a href="/login"><button class="nav">Log in to existing account</button></a>
+{% endblock %}

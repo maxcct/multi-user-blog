@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog</title>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link class="font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+
+	<style type="text/css">
+		body {
+	    font-family: Lato;
+	    font-size: 14px;
+	    width: 800px;
+	    margin: 0 auto;
+	    padding: 10px;
+	    color: #333;
+		max-width: 1000px;
+		}
+
+		h2 {
+		    font-size: 24px;
+		    font-weight: bold;
+		    text-align: center;
+		}
+
+		.error {
+		    color: red;
+		}
+
+		.label {
+			text-align: right;
+			padding-right: 10px;
+		}
+
+		label {
+		  display: block;
+		  font-size: 20px;
+		}
+
+		label + label {
+		    margin-top: 20px;
+		}
+
+		input[type=text] {
+		    width: 500px;
+		    font-size: 20px;
+		    padding: 2px;
+		    font-family: monospace;
+		}
+
+		textarea {
+		  width: 800px;
+		  height: 200px;
+		  font-size: 17px;
+		  font-family: monospace;
+		}
+
+		input[type=submit] {
+		  font-size: 16px;
+		  font-weight: bold;
+		}
+
+		.main-title {
+		    display: block;
+		    color: #222;
+		    font-size: 40px;
+		    font-weight: bold;
+		    text-align: center;
+		    text-decoration: none;
+		}
+
+		.post + .post {
+		    margin-top: 15px;
+		}
+
+		.post-heading {
+		    position: relative;
+		    border-bottom: 3px solid #666;
+		    padding-bottom: 10px;
+		}
+
+		.post-title {
+		    font-size: 24px;
+		    font-weight: bold;
+		    margin-top: 40px;
+		}
+
+		.post-date {
+		    position: absolute;
+		    right: 0px;
+		    bottom: 0px;
+		    color: #999;
+			padding-bottom: 10px;
+		}
+
+		.post-content {
+			font-size: 16px;
+		    margin-top: 5px;
+		    padding: 15px 0;
+		    border-bottom: 3px solid #666;
+		    line-height: 1.5em;
+		}
+
+		.post-author {
+			text-align: center;
+			font-size: 16px;
+			font-weight: bold;
+			margin: 15px 0 5px 0;
+		}
+
+		.post-bar {
+			display: flex;
+			width: 100%;
+		}
+
+		.whole-post {
+			margin-bottom: 70px;
+		}
+
+		.nav-bar {
+			display: flex;
+			margin-bottom: 30px;
+		}
+
+		.nav {
+			padding: 5px;
+			font-weight: bold;
+			width: 200px;
+			margin-top: 20px;
+		}
+
+		.nav a {
+			text-decoration: none;
+			color: black;
+		}
+
+		.nav form + form {
+			margin-top: 10px;
+		}
+
+		.comment {
+			margin-top: 20px;
+		}
+
+		#write-comment {
+			margin-top: 20px;
+			padding-bottom: 5px;
+			font-weight: bold;
+		}
+
+		.action {
+			margin-top: 10px;
+			font-weight: bold;
+		}
+
+		.likes {
+			border-radius: 3px;
+			margin-top: 10px;
+			font-weight: bold;
+			max-width: 150px;
+		}
+
+		.like-form {
+			display: inline-block;
+		}
+
+		.nav-right {
+			float: right;
+			max-width: 200px;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<a href="/blog" class="main-title">
+	Blog
+	</a>
+	<div class="nav-bar">
+		<a href="/blog/newpost"><button class="nav">NEW POST</button></a>
+		<a href="/blog/myposts"><button class="nav">MY POSTS</button></a>
+		<a href="/login"><button class="nav">LOG IN</button></a>
+		<a href="/logout"><button class="nav">LOG OUT</button></a>
+	</div>
+	<div id="content">
+		{% block content %}
+		{% endblock %}
+	</div>
+</body>
+
+</html>
+

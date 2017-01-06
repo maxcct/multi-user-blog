@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+	{{post.render() | safe}}
+	{% if author_buttons %}
+		<form method="post">
+			<input class="action" type="submit" name="delete" value="Delete">
+			<input class="action" type="submit" name="edit" value="Edit">
+		</form>
+	{% endif %}
+	{% if not author_buttons %}
+		<form method="post">
+			<button class="nav" type="submit" name="like" value="{{ post.key().id() }}">Like this post</button>
+		</form>
+	{% endif %}
+	<form method="get">
+		<button class="likes" type="submit" name="likers" value="{{ post.key().id() }}">Likes: {{ post.likes|length }}</button>
+	</form>
+	{% if like_error %}
+		{{ "You can't like the same post twice!" }}
+	{% endif %}
+	{{ author }}
+	{% if likers_list %}
+		<h3>Liked by:</h3>
+		<ul>
+		{% for liker in post.likes %}
+			<li>{{ liker }}</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+
+	<form method="post">
+		<label>
+			<div id="write-comment">Write comment</div>
+			<textarea name="content"></textarea>
+			<input type="submit">
+		</label>
+	</form>
+	{% if comment_error %}
+		{{ "You can only edit/delete your own comments." }}
+	{% endif %}
+	{% for comment in comments %}
+		{{ comment.render() | safe }}
+		<form method="post">
+			<button class="action" type="submit" name="delete_comment" value="{{ comment.key().id() }}">Delete</button>
+			<button class="action" type="submit" name="edit_comment" value="{{ comment.key().id() }}">Edit</button>
+		</form>
+		<br><br>
+	{% endfor %}
+
+{% endblock %}

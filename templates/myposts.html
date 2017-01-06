@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+	{% for post in posts %}
+		{{ post.render() | safe }}
+		<form class="like-form" method="get">
+			<button class="likes" type="submit" name="likers" value="{{ post.key().id() }}">Likes: {{ post.likes|length }}</button>
+		</form>
+		<a href="/blog/{{post.key().id()}}"><button class="nav nav-right">Post Page</button></a>
+		<br><br>
+	{% endfor %}
+
+{% endblock %}
