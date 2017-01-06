@@ -26,6 +26,7 @@ Starting module "default" running at: http://localhost:8080
 You should then be able to access the blog at [localhost:8080/signup](http://localhost:8080/signup) in your browser.
 
 N.B.
+
 Please note that the results of actions such as submitting a new post or liking a post may not
 be apparent until the page is refreshed. I've looked into this and it appears to be an issue
 with Google's Datastore: nothing I can do about it. Just manually refresh the page after such
