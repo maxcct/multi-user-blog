@@ -204,6 +204,8 @@ class MainPage(Handler):
 
         if visits > 10000:
             self.write("You bin here more'n 10K goddamn times. Get a life!")
+        elif visits == 1:
+            self.write("This is your first visit!")
         else:
             self.write("You've been here %s times!" % visits)
 
