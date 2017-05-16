@@ -11,10 +11,10 @@
 		<div class="whole-post">
 			{{ post.render() | safe }}
 			<form class="like-form" method="post">
-				<button class="likes" type="submit" name="like" value="{{ post.key().id() }}">Like this post</button>
+				<button class="likes" type="submit" name="like" value="{{ post.key().id() }}">Like</button>
 			</form>
 			<form class="like-form" method="get">
-				<button class="likes" type="submit" name="likers" value="{{ post.key().id() }}">Likes: {{ post.likes|length }}</button>
+				<button class="likes" type="submit" name="likers" value="{{ post.key().id() }}">{{ post.likes|length }}</button>
 			</form>
 
 			<a href="/blog/{{post.key().id()}}"><button class="nav nav-right">Go to post</button></a>
