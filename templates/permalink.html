@@ -10,12 +10,9 @@
 	{% endif %}
 	{% if not author_buttons %}
 		<form method="post">
-			<button class="nav" type="submit" name="like" value="{{ post.key().id() }}">Like this post</button>
+			<button class="nav likes" type="submit" name="like" value="{{ post.key().id() }}">Like</button>
 		</form>
 	{% endif %}
-	<form method="get">
-		<button class="likes" type="submit" name="likers" value="{{ post.key().id() }}">Likes: {{ post.likes|length }}</button>
-	</form>
 	{% if like_error %}
 		{{ "You can't like the same post twice!" }}
 	{% endif %}
@@ -33,6 +30,7 @@
 		<label>
 			<div id="write-comment">Write comment</div>
 			<textarea name="content"></textarea>
+			<br>
 			<input type="submit">
 		</label>
 	</form>
